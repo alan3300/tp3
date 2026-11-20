@@ -1,0 +1,70 @@
+VETA — MEDIDAS DEL DISEÑO
+Colectivo de artes multimediales · TP3 · Informática General (UNA)
+
+Archivos de esta carpeta
+  index.png / index.jpg ....... Maqueta 01 · Portada del portafolio
+  galeria.png / galeria.jpg ... Maqueta 02 · Muro de obras y filtros
+  contacto.png / contacto.jpg . Maqueta 03 · Formulario y fichas de autor
+  index.ai / galeria.ai / contacto.ai
+        Archivos vectoriales (PDF compatible con Illustrator) de las mismas
+        maquetas, editables: se abren con Adobe Illustrator o con Inkscape.
+
+Formato de las maquetas
+  Tablero de 1600 x 1200 px. La pantalla real va embebida a escala 1:1 en
+  1440 x 900 px, con las cotas y el panel de sistema dibujados encima.
+  Los PNG y JPG se exportaron a 3200 x 2400 px (2x) para que las medidas se
+  lean con nitidez al imprimir.
+
+MEDIDAS FIJAS
+  Ancho máximo de contenido ............ 1440 px
+  Margen lateral (gutter) .............. 64 px  (clamp 20-64 según pantalla)
+  Ancho útil entre márgenes ............ 1312 px
+  Columna del muro de obras ............ 400 px
+  Separación entre columnas ............ 40 px
+  Columnas por fila (1440 px) .......... 3
+  Ritmo vertical ........................ 8 px
+  Radios de esquina ..................... 0 (sistema editorial, sin burbujas)
+  Sombra ................................ ninguna en el contenido
+
+ALTURAS DE BLOQUE (a 1440 x 900)
+  index.html
+    Cabecera ........................... 72 px
+    Portada (hero) ..................... altura de ventana
+    Bloque por autor ................... altura de ventana (100vh)
+      Placa de obra .................... 760 x 950 px máximo
+      Tipografía del nombre ............ 96 px (clamp 45-96)
+    Índice de obras .................... 3 columnas
+    Bloque del colectivo (aside) ........ 2 columnas 1fr / 1.2fr
+    Pie ................................ 3 bloques
+
+  galeria.html
+    Cabecera ........................... 72 px
+    Encabezado + título ................ 96 px (clamp 45-96)
+    Botones de filtro .................. 40 px de alto
+    Costura divisoria .................. 1 px
+    Muro ............................... 3 columnas de 400 px + 40 px
+    Visor de obra ..................... hasta 92 vh
+
+  contacto.html
+    Cabecera ........................... 72 px
+    Titular ............................ 96 px (clamp 45-96)
+    Columna de formulario .............. 692 px
+    Columna de fichas (aside) .......... 556 px
+    Campos ............................. línea de base de 1 px, alto 48 px
+
+PALETA
+  Tinta ............................... #14110F   fondo oscuro y texto
+  Papel .............................. #F2EEE6   fondo claro
+  Veta (acento) ...................... #E4572E   costuras, enlaces, logo
+  Bruma .............................. #8F8A82   texto secundario
+
+TIPOGRAFÍAS (webfonts locales en /fonts)
+  Playfair Display 900/700/400 ......... titulares y nombres de autor
+  Montserrat 700/600/400 ............... texto, datos y etiquetas
+  Ambos se sirven desde archivos .woff2 propio, con @font-face en estilos.css.
+
+MEDIDAS DE LOS ARCHIVOS DE IMAGEN
+  Miniatura del muro ................... 400 px de ancho (1:1 con la columna)
+  Versión grande (visor) .............. archivo original de la obra
+  Placas destacadas del index ......... hasta 760 x 950 px
+  En el HTML no hay atributos width ni height, y el CSS no reduce imágenes.
