@@ -2,7 +2,7 @@
    VETA — sistema visual del colectivo
    Paleta:  tinta (negro calido) / papel (blanco roto) / veta (vermellion) / bruma
    Tipos:   Playfair Display (display) + Montserrat (texto y datos)
-   Retícula: 1440 px de ancho maximo, columna de 400 px para las obras
+   Retícula: 1440 px de ancho máximo, columna de 400 px para las obras
    ========================================================================== */
 
 /* --- 1. Webfonts locales ---------------------------------------------------- */
@@ -151,7 +151,7 @@ p {
   top: 1rem;
 }
 
-/* --- 4. Costura: la marca grafica del sitio -------------------------------- */
+/* --- 4. Costura: la marca gráfica del sitio -------------------------------- */
 .costura {
   position: relative;
   height: 1px;
@@ -173,7 +173,7 @@ p {
   background: var(--linea-clara);
 }
 
-/* --- 5. Cabecera y navegacion ---------------------------------------------- */
+/* --- 5. Cabecera y navegación ---------------------------------------------- */
 .cabecera {
   position: sticky;
   top: 0;
@@ -263,7 +263,7 @@ p {
   letter-spacing: 0.1em;
 }
 
-/* --- 6. Botones y enlaces de accion ---------------------------------------- */
+/* --- 6. Botones y enlaces de acción ---------------------------------------- */
 .boton {
   display: inline-flex;
   align-items: center;
@@ -536,7 +536,7 @@ p {
   border-color: var(--linea-clara);
 }
 
-/* --- 9. Indice de obras ---------------------------------------------------- */
+/* --- 9. Índice de obras ---------------------------------------------------- */
 .indice {
   background: var(--papel-2);
   padding: clamp(3rem, 8vh, 6rem) 0;
@@ -662,7 +662,7 @@ p {
   text-align: right;
 }
 
-/* --- 11. Galeria: muro ----------------------------------------------------- */
+/* --- 11. Galería: muro ----------------------------------------------------- */
 .galeria-cabecera {
   background: var(--tinta);
   color: var(--papel);
