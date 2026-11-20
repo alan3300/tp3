@@ -1,11 +1,11 @@
 /* ==========================================================================
    VETA — funciones del sitio
-   1. Datos de las obras (fuente unica de la verdad)
+   1. Datos de las obras.
    2. Muro de la galeria: se arma con JavaScript, no con paginas extra
    3. Filtros por autor, con contador
-   4. Visor de obra con navegacion por teclado
-   5. Indice de obras del index
-   6. Validacion del formulario de contacto
+   4. Visor de obra con navegación por teclado
+   5. Índice de obras del 'index'
+   6. Validación del formulario de contacto
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
       alt: 'Fotografía 16 de Fiorella Carretino: hojas verdes y luz rasante.' }
   ];
 
-  /* --- 2. Muro de la galeria ------------------------------------------------ */
+  /* --- 2. Muro de la galería ------------------------------------------------ */
   const muro = document.querySelector('#muro');
 
   if (muro) {
@@ -402,7 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* --- 5. Indice de obras del index ---------------------------------------- */
+  /* --- 5. Índice de obras del index ---------------------------------------- */
   const indice = document.querySelector('#indice-obras');
 
   if (indice) {
