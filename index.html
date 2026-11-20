@@ -1,1 +1,220 @@
+<!--
+Verruá, Alan.
+Olivera, Florencia.
+Carretino, Fiorella.
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="VETA — colectivo de artes multimediales. Portfolio de Alan Verruá, Florencia Olivera y Fiorella Carretino: video, rotoscopia, fotografía, cianotipia e imagen digital.">
+  <title>VETA — Colectivo de artes multimediales</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="estilos.css">
+  <script src="funciones.js" defer></script>
+</head>
+<body>
+  <a class="salto" href="#contenido">Saltar al contenido</a>
 
+  <header class="cabecera">
+    <div class="cabecera-marco">
+      <a class="marca" href="index.html" aria-label="VETA, inicio">
+        <svg class="marca-simbolo" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <rect x="4.5" y="4.5" width="55" height="55" fill="none" stroke="currentColor" stroke-width="3"/>
+          <g stroke="#E4572E" stroke-width="5">
+            <line x1="12" y1="52" x2="23" y2="41"/>
+            <line x1="27" y1="37" x2="38" y2="26"/>
+            <line x1="42" y1="22" x2="53" y2="11"/>
+          </g>
+        </svg>
+        <span>
+          <span class="marca-nombre">VETA</span>
+          <span class="marca-bajada">Artes multimediales</span>
+        </span>
+      </a>
+
+      <nav class="menu" aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html" aria-current="page"><span class="menu-num">01</span> Portafolio</a></li>
+          <li><a href="galeria.html"><span class="menu-num">02</span> Galería</a></li>
+          <li><a href="contacto.html"><span class="menu-num">03</span> Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- PORTADA -->
+    <section class="portada" aria-labelledby="portada-titulo">
+      <div class="portada-marco">
+        <p class="portada-kicker">Colectivo de artes multimediales — 2026</p>
+        <h1 id="portada-titulo">Tres autores.<br><em>Una sola veta.</em></h1>
+        <p class="portada-bajada">
+          VETA reúne el trabajo de <b>Alan Verruá</b>, <b>Florencia Olivera</b> y
+          <b>Fiorella Carretino</b>: video, rotoscopia, fotografía, cianotipia e
+          imagen digital reunidas en un mismo cuerpo de obra.
+        </p>
+        <p class="portada-acciones">
+          <a class="boton" href="galeria.html">Ver las obras</a>
+          <a class="boton boton--fantasma" href="#autores">Conocer a los autores</a>
+        </p>
+      </div>
+
+      <div class="portada-ficha">
+        <article>
+          <p class="ficha-nombre">Alan Verruá</p>
+          <p class="ficha-rol">Video y rotoscopia</p>
+        </article>
+        <article>
+          <p class="ficha-nombre">Florencia Olivera</p>
+          <p class="ficha-rol">Imagen e impresión</p>
+        </article>
+        <article>
+          <p class="ficha-nombre">Fiorella Carretino</p>
+          <p class="ficha-rol">Fotografía digital</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- AUTORES: una obra y un autor a pantalla completa -->
+    <section class="vetas" id="autores" aria-labelledby="autores-titulo">
+      <h2 id="autores-titulo" class="solo-lectores">Los tres autores y sus obras</h2>
+
+      <article class="veta" id="alan">
+        <figure class="veta-placa">
+          <img src="img/alan/destacada-video-construccion.jpg"
+               alt="Fotograma del video De Construcción de Alan Verruá: una composición en movimiento, tratamiento de color en verde y negro.">
+        </figure>
+        <div class="veta-datos">
+          <p class="veta-rol"><span>01</span> Video y rotoscopia</p>
+          <h3 class="veta-nombre">Alan<br><em>Verruá</em></h3>
+          <p class="veta-texto">
+            Trabaja sobre la imagen en movimiento: rotoscopia de frames, collage y
+            proyectos visuales donde el color y el montaje construyen el relato.
+            Su pieza <i>De Construcción</i> es el punto de partida de esta web.
+          </p>
+          <ul class="veta-etiquetas">
+            <li>Rotoscopia</li>
+            <li>Proyecto visual</li>
+            <li>Collage</li>
+            <li>Video</li>
+          </ul>
+          <a class="boton boton--linea" href="galeria.html?autor=alan">Ver sus obras</a>
+        </div>
+      </article>
+
+      <article class="veta veta--oscura" id="florencia">
+        <figure class="veta-placa">
+          <img src="img/florencia/destacada-cianotipia.jpg"
+               alt="Proceso de impresión fotográfica de Florencia Olivera: una cianotipia sobre la mesa de trabajo.">
+        </figure>
+        <div class="veta-datos">
+          <p class="veta-rol"><span>02</span> Imagen e impresión</p>
+          <h3 class="veta-nombre">Florencia<br><em>Olivera</em></h3>
+          <p class="veta-texto">
+            Construye personajes y escenarios para el cortometraje <i>Uña y carne</i>,
+            y lleva ese mismo gesto al papel: fotocollage analógico,
+            foto-libro y cianotipia como soporte de su trabajo audiovisual.
+          </p>
+          <ul class="veta-etiquetas">
+            <li>Caracterización</li>
+            <li>Escenografía</li>
+            <li>Cianotipia</li>
+            <li>Rotoescopia</li>
+          </ul>
+          <a class="boton boton--fantasma" href="galeria.html?autor=florencia">Ver sus obras</a>
+        </div>
+      </article>
+
+      <article class="veta" id="fiorella">
+        <figure class="veta-placa">
+          <img src="img/fiorella/destacada-fotografia-01.jpg"
+               alt="Fotografía 01 de Fiorella Carretino: una flor blanca fotografiada sobre un paño rojo.">
+        </figure>
+        <div class="veta-datos">
+          <p class="veta-rol"><span>03</span> Fotografía digital</p>
+          <h3 class="veta-nombre">Fiorella<br><em>Carretino</em></h3>
+          <p class="veta-texto">
+            Una serie fotográfica de dieciséis piezas que sigue el detalle y la luz de
+            la ciudad: naturaleza y objetos cotidianos convertidos en material de
+            trabajo, con una mirada sostenida a lo largo de toda la serie.
+          </p>
+          <ul class="veta-etiquetas">
+            <li>Fotografía</li>
+            <li>Serie</li>
+            <li>Color</li>
+          </ul>
+          <a class="boton boton--linea" href="galeria.html?autor=fiorella">Ver sus obras</a>
+        </div>
+      </article>
+    </section>
+
+    <div class="costura"></div>
+
+    <!-- ÍNDICE DE OBRAS -->
+    <section class="indice" aria-labelledby="indice-titulo">
+      <div class="indice-marco">
+        <div class="indice-titulo">
+          <h2 id="indice-titulo">Índice de obras</h2>
+          <p id="indice-total">—</p>
+        </div>
+        <ol class="lista-obras" id="indice-obras"></ol>
+        <noscript>
+          <p class="aviso">El índice completo se arma con JavaScript. Activalo para ver todas las obras.</p>
+        </noscript>
+      </div>
+    </section>
+
+    <!-- DATOS DEL COLECTIVO -->
+    <aside class="lateral" aria-labelledby="colectivo-titulo">
+      <div class="lateral-marco">
+        <div>
+          <p class="portada-kicker">Sobre el colectivo</p>
+          <h2 id="colectivo-titulo">Veta es una costura abierta</h2>
+          <p>
+            No es una marca comercial: es la forma que toman tres manera distintas de
+            mirar una imagen cuando se las pone una al lado de la otra. Cada autor
+            conserva su oficio —el video, la impresión, la fotografía— y el sitio los
+            junta sin borrar las diferencias.
+          </p>
+          <p>
+            El sitio funciona como archivo y vidriera: las obras están exportadas al
+            tamaño exacto en el que se ven, y la galería se recorre con filtros por
+            autor.
+          </p>
+        </div>
+        <ul class="lateral-datos">
+          <li><span>Integrantes</span><span>Verruá · Olivera · Carretino</span></li>
+          <li><span>Carrera</span><span>Informática General — UNA</span></li>
+          <li><span>Disciplinas</span><span>Video · Imagen · Fotografía</span></li>
+          <li><span>Ítem</span><span>TP3 — Portafolio de colectivo</span></li>
+          <li>
+            <span>Institucional</span>
+            <span><a class="enlace-veta" href="http://www.multimedia.una.edu.ar" target="_blank" rel="noopener noreferrer">Artes Multimediales UNA</a></span>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+  </main>
+
+  <footer class="pie">
+    <div class="pie-marco">
+      <div>
+        <p class="pie-marca">VETA</p>
+        <p class="pie-datos">Colectivo de artes multimediales — 2026</p>
+        <address>Diseño, código y contenidos del colectivo.</address>
+      </div>
+      <ul class="pie-enlaces">
+        <li><a href="index.html">Portafolio</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="https://www.youtube.com/@alanverrua9402" target="_blank" rel="noopener noreferrer">Canal de Alan</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

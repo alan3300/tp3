@@ -1,0 +1,1262 @@
+/* ==========================================================================
+   VETA — sistema visual del colectivo
+   Paleta:  tinta (negro calido) / papel (blanco roto) / veta (vermellion) / bruma
+   Tipos:   Playfair Display (display) + Montserrat (texto y datos)
+   Retícula: 1440 px de ancho maximo, columna de 400 px para las obras
+   ========================================================================== */
+
+/* --- 1. Webfonts locales ---------------------------------------------------- */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('fonts/Montserrat-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('fonts/Montserrat-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('fonts/Montserrat-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('fonts/PlayfairDisplay-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('fonts/PlayfairDisplay-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('fonts/PlayfairDisplay-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --- 2. Tokens ------------------------------------------------------------- */
+:root {
+  --tinta: #14110F;
+  --tinta-2: #1E1A16;
+  --tinta-3: #2B251F;
+  --papel: #F2EEE6;
+  --papel-2: #E8E1D4;
+  --papel-3: #D9D1C0;
+  --veta: #E4572E;
+  --veta-claro: #F2855F;
+  --bruma: #8F8A82;
+  --linea: rgba(20, 17, 15, 0.16);
+  --linea-clara: rgba(242, 238, 230, 0.20);
+
+  --display: 'Playfair Display', Georgia, serif;
+  --texto: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+
+  --ancho: 1440px;
+  --gutter: clamp(1.25rem, 4vw, 4rem);
+  --columna: 400px;
+}
+
+/* --- 3. Base --------------------------------------------------------------- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--papel);
+  color: var(--tinta);
+  font-family: var(--texto);
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--display);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+::selection {
+  background: var(--veta);
+  color: var(--papel);
+}
+
+.solo-lectores {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.salto {
+  position: absolute;
+  top: -9999px;
+  left: 1rem;
+  z-index: 3000;
+  padding: 0.75rem 1.25rem;
+  background: var(--veta);
+  color: var(--papel);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.salto:focus {
+  top: 1rem;
+}
+
+/* --- 4. Costura: la marca grafica del sitio -------------------------------- */
+.costura {
+  position: relative;
+  height: 1px;
+  background: var(--linea);
+}
+
+.costura::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 22%;
+  height: 9px;
+  background: var(--veta);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 9px) 100%, 0 100%);
+}
+
+.costura--clara {
+  background: var(--linea-clara);
+}
+
+/* --- 5. Cabecera y navegacion ---------------------------------------------- */
+.cabecera {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: var(--tinta);
+  color: var(--papel);
+  border-bottom: 1px solid var(--linea-clara);
+}
+
+.cabecera-marco {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding: 1rem var(--gutter);
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  color: var(--papel);
+  text-decoration: none;
+}
+
+.marca-simbolo {
+  width: 40px;
+  height: 40px;
+  flex: none;
+}
+
+.marca-nombre {
+  display: block;
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 1.45rem;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.marca-bajada {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--bruma);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+.menu ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid transparent;
+  color: var(--papel);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.25s, border-color 0.25s;
+}
+
+.menu a:hover,
+.menu a:focus-visible,
+.menu [aria-current='page'] {
+  border-bottom-color: var(--veta);
+  color: var(--veta);
+}
+
+.menu-num {
+  color: var(--bruma);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+}
+
+/* --- 6. Botones y enlaces de accion ---------------------------------------- */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.6rem;
+  border: 1px solid transparent;
+  background: var(--veta);
+  color: var(--papel);
+  font-family: var(--texto);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+
+.boton:hover {
+  background: var(--tinta);
+  color: var(--papel);
+}
+
+.boton--linea {
+  background: transparent;
+  border-color: var(--linea);
+  color: var(--tinta);
+}
+
+.boton--linea:hover {
+  border-color: var(--veta);
+  background: transparent;
+  color: var(--veta);
+}
+
+.boton--fantasma {
+  background: transparent;
+  border-color: var(--linea-clara);
+  color: var(--papel);
+}
+
+.boton--fantasma:hover {
+  border-color: var(--veta);
+  background: transparent;
+  color: var(--veta);
+}
+
+.enlace-veta {
+  color: var(--veta);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+}
+
+.enlace-veta:hover {
+  color: var(--tinta);
+}
+
+/* --- 7. Portada ------------------------------------------------------------ */
+.portada {
+  position: relative;
+  overflow: hidden;
+  background: var(--tinta);
+  color: var(--papel);
+}
+
+.portada::after {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -10%;
+  width: 46vw;
+  height: 160%;
+  background: linear-gradient(180deg, rgba(228, 87, 46, 0.16), rgba(228, 87, 46, 0));
+  transform: rotate(14deg);
+  pointer-events: none;
+}
+
+.portada-marco {
+  position: relative;
+  z-index: 1;
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding: clamp(3.5rem, 10vh, 8rem) var(--gutter) clamp(3rem, 7vh, 5rem);
+}
+
+.portada-kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0 0 1.5rem;
+  color: var(--bruma);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.portada-kicker::before {
+  content: '';
+  width: 46px;
+  height: 2px;
+  background: var(--veta);
+}
+
+.portada h1 {
+  max-width: 16ch;
+  margin: 0 0 1.8rem;
+  font-size: clamp(3rem, 10.5vw, 9rem);
+  line-height: 0.92;
+}
+
+.portada h1 em {
+  color: var(--veta);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.portada-bajada {
+  max-width: 52ch;
+  margin-bottom: 2.2rem;
+  color: rgba(242, 238, 230, 0.74);
+  font-size: clamp(1rem, 1.35vw, 1.15rem);
+}
+
+.portada-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 0;
+}
+
+.portada-ficha {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--linea-clara);
+  border-top: 1px solid var(--linea-clara);
+}
+
+.portada-ficha article {
+  padding: 1.6rem var(--gutter) 1.8rem;
+  background: var(--tinta);
+}
+
+.portada-ficha p {
+  margin: 0;
+}
+
+.ficha-nombre {
+  font-family: var(--display);
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.ficha-rol {
+  margin-top: 0.3rem;
+  color: var(--bruma);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* --- 8. Vetas: una obra y un autor a pantalla completa --------------------- */
+.vetas {
+  background: var(--papel);
+}
+
+.veta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  min-height: 100vh;
+  border-top: 1px solid var(--linea);
+}
+
+.veta--oscura {
+  background: var(--tinta);
+  color: var(--papel);
+  border-top-color: var(--linea-clara);
+}
+
+.veta-placa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: clamp(2rem, 5vw, 5rem);
+}
+
+.veta-placa img {
+  max-width: 100%;
+  max-height: 76vh;
+  width: auto;
+  height: auto;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.22);
+}
+
+.veta-datos {
+  padding: clamp(2rem, 5vw, 5rem) clamp(1.5rem, 4vw, 4rem);
+}
+
+.veta-rol {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin: 0 0 1rem;
+  color: var(--veta);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+.veta-rol span {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid currentColor;
+  font-size: 0.66rem;
+  letter-spacing: 0;
+}
+
+.veta-nombre {
+  margin: 0 0 1.2rem;
+  font-size: clamp(2.8rem, 6.4vw, 6rem);
+  line-height: 0.94;
+}
+
+.veta-nombre em {
+  color: var(--veta);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.veta-texto {
+  max-width: 46ch;
+  color: var(--gris-texto, #4a443d);
+}
+
+.veta--oscura .veta-texto {
+  color: rgba(242, 238, 230, 0.72);
+}
+
+.veta-etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 1.6rem 0 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.veta-etiquetas li {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--linea);
+  color: var(--bruma);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.veta--oscura .veta-etiquetas li {
+  border-color: var(--linea-clara);
+}
+
+/* --- 9. Indice de obras ---------------------------------------------------- */
+.indice {
+  background: var(--papel-2);
+  padding: clamp(3rem, 8vh, 6rem) 0;
+}
+
+.indice-marco {
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.indice-titulo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.indice-titulo h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4.5vw, 3.6rem);
+}
+
+.indice-titulo p {
+  margin: 0;
+  color: var(--bruma);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.lista-obras {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  columns: 3;
+  column-gap: clamp(1.5rem, 4vw, 3.5rem);
+}
+
+.lista-obras li {
+  display: grid;
+  grid-template-columns: 2.4rem 1fr;
+  gap: 0.2rem 0.8rem;
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--linea);
+  break-inside: avoid;
+}
+
+.lista-obras .obra-num {
+  color: var(--veta);
+  font-family: var(--display);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.lista-obras .obra-titulo {
+  font-family: var(--display);
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.lista-obras .obra-meta {
+  grid-column: 2;
+  color: var(--bruma);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* --- 10. Bloque lateral (aside) -------------------------------------------- */
+.lateral {
+  background: var(--tinta);
+  color: var(--papel);
+}
+
+.lateral-marco {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding: clamp(3rem, 8vh, 6rem) var(--gutter);
+}
+
+.lateral--simple .lateral-marco {
+  grid-template-columns: 1.2fr 1fr;
+}
+
+.lateral h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.8rem, 3.4vw, 2.8rem);
+}
+
+.lateral p {
+  color: rgba(242, 238, 230, 0.72);
+}
+
+.lateral-datos {
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lateral-datos li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--linea-clara);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.lateral-datos span:last-child {
+  color: var(--bruma);
+  text-align: right;
+}
+
+/* --- 11. Galeria: muro ----------------------------------------------------- */
+.galeria-cabecera {
+  background: var(--tinta);
+  color: var(--papel);
+  padding: clamp(3rem, 8vh, 6rem) 0 clamp(2rem, 5vh, 3.5rem);
+}
+
+.galeria-cabecera .costura {
+  margin-top: 2.5rem;
+}
+
+.intro-marco {
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.intro-marco h1 {
+  margin: 0 0 1.2rem;
+  font-size: clamp(2.8rem, 8vw, 6rem);
+  line-height: 0.95;
+}
+
+.intro-marco h1 em {
+  color: var(--veta);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.intro-texto {
+  max-width: 58ch;
+  color: rgba(242, 238, 230, 0.72);
+}
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 2.5rem 0 0;
+}
+
+.filtro {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.6rem 1.1rem;
+  border: 1px solid var(--linea-clara);
+  background: transparent;
+  color: var(--papel);
+  font-family: var(--texto);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.25s, color 0.25s, background 0.25s;
+}
+
+.filtro:hover {
+  border-color: var(--veta);
+  color: var(--veta);
+}
+
+.filtro.activo {
+  border-color: var(--veta);
+  background: var(--veta);
+  color: var(--papel);
+}
+
+.filtro-cuenta {
+  font-family: var(--display);
+  font-size: 0.85rem;
+  letter-spacing: 0;
+  opacity: 0.7;
+}
+
+.marco-muro {
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vh, 4.5rem) var(--gutter) clamp(3rem, 7vh, 5rem);
+}
+
+.muro {
+  columns: var(--columna);
+  column-gap: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.obra {
+  break-inside: avoid;
+  margin: 0 0 clamp(1.25rem, 3vw, 2.5rem);
+  border-top: 1px solid var(--linea);
+  padding-top: 0.8rem;
+}
+
+.obra-lanzador {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
+.obra-lanzador img {
+  margin: 0 auto;
+  background: var(--papel-2);
+  transition: opacity 0.3s;
+}
+
+.obra-lanzador:hover img {
+  opacity: 0.86;
+}
+
+.obra-marco-video {
+  position: relative;
+}
+
+.obra-marco-video::after {
+  content: '▶';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  margin: -27px 0 0 -27px;
+  border: 1px solid var(--papel);
+  border-radius: 50%;
+  background: rgba(20, 17, 15, 0.55);
+  color: var(--papel);
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+.obra-datos {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.7rem;
+}
+
+.obra-titulo {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.obra-autor {
+  flex: none;
+  color: var(--bruma);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.obra-tecnica {
+  margin: 0.2rem 0 0;
+  color: var(--bruma);
+  font-size: 0.72rem;
+}
+
+.muro-vacio,
+.aviso {
+  padding: 1rem 0;
+  color: var(--bruma);
+  font-size: 0.9rem;
+}
+
+/* --- 12. Visor (lightbox) -------------------------------------------------- */
+.visor {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  background: rgba(10, 8, 7, 0.95);
+}
+
+.visor[hidden] {
+  display: none;
+}
+
+.visor-marco {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  width: max-content;
+  max-width: 100%;
+  background: var(--papel);
+  color: var(--tinta);
+}
+
+.visor-lienzo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--tinta-2);
+}
+
+.visor-lienzo img {
+  max-width: min(92vw, 1100px);
+  max-height: 74vh;
+  width: auto;
+  height: auto;
+}
+
+.visor-lienzo iframe {
+  width: min(92vw, 960px);
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
+.visor-lienzo video {
+  max-width: min(92vw, 1100px);
+  max-height: 74vh;
+}
+
+.visor-pie {
+  padding: 1.1rem 1.4rem 1.3rem;
+}
+
+.visor-pie p {
+  margin: 0;
+}
+
+.visor-titulo {
+  font-family: var(--display);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.visor-meta {
+  margin-top: 0.25rem;
+  color: var(--bruma);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.visor-enlace {
+  margin-top: 0.6rem;
+}
+
+.visor-enlace a {
+  color: var(--veta);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+.visor-cerrar {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--linea);
+  border-radius: 50%;
+  background: var(--papel);
+  color: var(--tinta);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.visor-cerrar:hover {
+  background: var(--veta);
+  border-color: var(--veta);
+  color: var(--papel);
+}
+
+.visor-nav {
+  position: absolute;
+  top: 50%;
+  width: 46px;
+  height: 46px;
+  margin-top: -23px;
+  border: 1px solid var(--linea-clara);
+  border-radius: 50%;
+  background: rgba(20, 17, 15, 0.65);
+  color: var(--papel);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.visor-nav:hover {
+  background: var(--veta);
+  border-color: var(--veta);
+}
+
+.visor-nav--prev {
+  left: -58px;
+}
+
+.visor-nav--next {
+  right: -58px;
+}
+
+/* --- 13. Contacto ---------------------------------------------------------- */
+.contacto {
+  background: var(--papel);
+  padding: clamp(3rem, 8vh, 6rem) 0;
+}
+
+.contacto-marco {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(2.5rem, 6vw, 6rem);
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.contacto h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.8rem, 8vw, 6rem);
+  line-height: 0.95;
+}
+
+.contacto h1 em {
+  color: var(--veta);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.contacto-intro {
+  max-width: 46ch;
+  color: #4a443d;
+  margin-bottom: 2.5rem;
+}
+
+.formulario {
+  display: grid;
+  gap: 1.8rem;
+}
+
+.campo {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.campo label {
+  color: var(--tinta);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.campo input,
+.campo textarea,
+.campo select {
+  padding: 0.55rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--linea);
+  border-radius: 0;
+  background: transparent;
+  color: var(--tinta);
+  font-family: var(--texto);
+  font-size: 1rem;
+}
+
+.campo textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.campo input:focus,
+.campo textarea:focus,
+.campo select:focus {
+  outline: none;
+  border-bottom-color: var(--veta);
+}
+
+.mensaje {
+  min-height: 1.4rem;
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.mensaje.ok {
+  color: #2f7d4f;
+}
+
+.mensaje.error {
+  color: var(--veta);
+}
+
+.fichas {
+  background: var(--tinta);
+  color: var(--papel);
+  padding: clamp(1.6rem, 3vw, 2.5rem);
+}
+
+.fichas h2 {
+  margin: 0 0 0.4rem;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.fichas > p {
+  color: rgba(242, 238, 230, 0.65);
+  font-size: 0.9rem;
+}
+
+.ficha {
+  padding: 1.3rem 0;
+  border-top: 1px solid var(--linea-clara);
+}
+
+.ficha h3 {
+  margin: 0 0 0.15rem;
+  font-family: var(--display);
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.ficha-rol {
+  margin: 0 0 0.7rem;
+  color: var(--veta);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.ficha ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ficha li {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.3rem 0;
+  font-size: 0.82rem;
+}
+
+.ficha li span {
+  color: var(--bruma);
+  min-width: 78px;
+}
+
+.ficha a {
+  color: var(--papel);
+  text-decoration: none;
+  border-bottom: 1px solid var(--linea-clara);
+}
+
+.ficha a:hover {
+  color: var(--veta);
+  border-bottom-color: var(--veta);
+}
+
+/* --- 14. Pie --------------------------------------------------------------- */
+.pie {
+  background: var(--tinta);
+  color: var(--papel);
+  border-top: 1px solid var(--linea-clara);
+}
+
+.pie-marco {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding: 2.2rem var(--gutter);
+}
+
+.pie-marca {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+
+.pie-datos {
+  margin: 0.2rem 0 0;
+  color: var(--bruma);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.pie-enlaces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pie-enlaces a {
+  color: var(--papel);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid var(--linea-clara);
+}
+
+.pie-enlaces a:hover {
+  color: var(--veta);
+  border-bottom-color: var(--veta);
+}
+
+.pie address {
+  margin: 0;
+  color: var(--bruma);
+  font-style: normal;
+  font-size: 0.72rem;
+}
+
+/* --- 15. Responsive -------------------------------------------------------- */
+@media (max-width: 1100px) {
+  .veta {
+    grid-template-columns: 1fr;
+  }
+
+  .veta-placa {
+    min-height: 60vh;
+    padding: 2.5rem var(--gutter);
+  }
+
+  .veta-placa img {
+    max-height: 58vh;
+  }
+
+  .veta-datos {
+    padding-bottom: clamp(3rem, 8vh, 5rem);
+  }
+
+  .lista-obras {
+    columns: 2;
+  }
+
+  .contacto-marco,
+  .lateral-marco {
+    grid-template-columns: 1fr;
+  }
+
+  .visor-nav--prev {
+    left: 0.6rem;
+  }
+
+  .visor-nav--next {
+    right: 0.6rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .cabecera-marco {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.9rem;
+  }
+
+  .portada-ficha {
+    grid-template-columns: 1fr;
+  }
+
+  .lista-obras {
+    columns: 1;
+  }
+
+  .pie-marco {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
+  }
+}

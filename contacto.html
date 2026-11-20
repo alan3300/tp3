@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Contacto de VETA — colectivo de artes multimediales. Escribinos para consultas, muestras o colaboraciones con Alan Verruá, Florencia Olivera y Fiorella Carretino.">
+  <title>Contacto | VETA — Colectivo de artes multimediales</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="estilos.css">
+  <script src="funciones.js" defer></script>
+</head>
+<body>
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+
+  <header class="cabecera">
+    <div class="cabecera-marco">
+      <a class="marca" href="index.html" aria-label="VETA, inicio">
+        <svg class="marca-simbolo" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <rect x="4.5" y="4.5" width="55" height="55" fill="none" stroke="currentColor" stroke-width="3"/>
+          <g stroke="#E4572E" stroke-width="5">
+            <line x1="12" y1="52" x2="23" y2="41"/>
+            <line x1="27" y1="37" x2="38" y2="26"/>
+            <line x1="42" y1="22" x2="53" y2="11"/>
+          </g>
+        </svg>
+        <span>
+          <span class="marca-nombre">VETA</span>
+          <span class="marca-bajada">Artes multimediales</span>
+        </span>
+      </a>
+
+      <nav class="menu" aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html"><span class="menu-num">01</span> Portafolio</a></li>
+          <li><a href="galeria.html"><span class="menu-num">02</span> Galería</a></li>
+          <li><a href="contacto.html" aria-current="page"><span class="menu-num">03</span> Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!--
+      Contacto del colectivo VETA.
+      Los datos de cada autor están en las fichas del <aside class="fichas">,
+      al final de este archivo: se editan a mano si cambian.
+    -->
+    <section class="contacto" aria-labelledby="contacto-titulo">
+      <div class="contacto-marco">
+        <div>
+          <p class="portada-kicker">Contacto</p>
+          <h1 id="contacto-titulo">Hablemos<br><em>del trabajo.</em></h1>
+          <p class="contacto-intro">
+            Si querés pedir una muestra, una nota o una colaboración, escribinos a
+            cualquiera de los tres autores o dejanos un mensaje acá. Respondemos
+            desde el correo de cada uno.
+          </p>
+
+          <form id="formulario-contacto" class="formulario" novalidate>
+            <div class="campo">
+              <label for="nombre">Nombre</label>
+              <input id="nombre" name="nombre" type="text" autocomplete="name" required>
+            </div>
+
+            <div class="campo">
+              <label for="email">Correo electrónico</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+
+            <div class="campo">
+              <label for="motivo">Motivo</label>
+              <select id="motivo" name="motivo">
+                <option value="consulta">Consulta general</option>
+                <option value="muestra">Propuesta de muestra</option>
+                <option value="colaboracion">Colaboración</option>
+                <option value="prensa">Prensa y difusión</option>
+              </select>
+            </div>
+
+            <div class="campo">
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" required></textarea>
+            </div>
+
+            <button class="boton" type="submit">Enviar mensaje</button>
+            <p id="mensaje-formulario" class="mensaje" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <aside class="fichas" aria-labelledby="fichas-titulo">
+          <h2 id="fichas-titulo">Cada autor, su canal</h2>
+          <p>Escribinos directo a quien quieras ver.</p>
+
+          <article class="ficha">
+            <h3>Alan Verruá</h3>
+            <p class="ficha-rol">Video y rotoscopia</p>
+            <ul>
+              <li><span>Correo</span><a href="mailto:ofreceteme@gmail.com">ofreceteme@gmail.com</a></li>
+              <li><span>YouTube</span><a href="https://www.youtube.com/@alanverrua9402" target="_blank" rel="noopener noreferrer">@alanverrua9402</a></li>
+            </ul>
+          </article>
+
+          <article class="ficha">
+            <h3>Florencia Olivera</h3>
+            <p class="ficha-rol">Imagen e impresión</p>
+            <ul>
+              <li><span>Correo</span><a href="mailto:ofreceteme@gmail.com">ofreceteme@gmail.com</a></li>
+              <li><span>Contacto</span><a href="#formulario-contacto">Escribinos por el formulario</a></li>
+            </ul>
+          </article>
+
+          <article class="ficha">
+            <h3>Fiorella Carretino</h3>
+            <p class="ficha-rol">Fotografía digital</p>
+            <ul>
+              <li><span>Correo</span><a href="mailto:ofreceteme@gmail.com">ofreceteme@gmail.com</a></li>
+              <li><span>Contacto</span><a href="#formulario-contacto">Escribinos por el formulario</a></li>
+            </ul>
+          </article>
+
+          <article class="ficha">
+            <h3>El colectivo</h3>
+            <p class="ficha-rol">VETA</p>
+            <ul>
+              <li><span>Correo</span><a href="mailto:ofreceteme@gmail.com">ofreceteme@gmail.com</a></li>
+              <li><span>Taller</span>Alfredo Biazzi 1649, CABA</li>
+              <li><span>YouTube</span><a href="https://www.youtube.com/@alanverrua9402" target="_blank" rel="noopener noreferrer">@alanverrua9402</a></li>
+              <li><span>Cátedra</span><a href="http://www.multimedia.una.edu.ar" target="_blank" rel="noopener noreferrer">Artes Multimediales UNA</a></li>
+            </ul>
+          </article>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pie">
+    <div class="pie-marco">
+      <div>
+        <p class="pie-marca">VETA</p>
+        <p class="pie-datos">Colectivo de artes multimediales — 2026</p>
+        <address>Diseño, código y contenidos del colectivo.</address>
+      </div>
+      <ul class="pie-enlaces">
+        <li><a href="index.html">Portafolio</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="https://www.youtube.com/@alanverrua9402" target="_blank" rel="noopener noreferrer">Canal de Alan</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

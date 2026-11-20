@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Galería de obras de VETA: video, rotoscopia, fotografía, cianotipia e imagen digital de Alan Verruá, Florencia Olivera y Fiorella Carretino. Filtros por autor.">
+  <title>Galería | VETA — Colectivo de artes multimediales</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="estilos.css">
+  <script src="funciones.js" defer></script>
+</head>
+<body>
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+
+  <header class="cabecera">
+    <div class="cabecera-marco">
+      <a class="marca" href="index.html" aria-label="VETA, inicio">
+        <svg class="marca-simbolo" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <rect x="4.5" y="4.5" width="55" height="55" fill="none" stroke="currentColor" stroke-width="3"/>
+          <g stroke="#E4572E" stroke-width="5">
+            <line x1="12" y1="52" x2="23" y2="41"/>
+            <line x1="27" y1="37" x2="38" y2="26"/>
+            <line x1="42" y1="22" x2="53" y2="11"/>
+          </g>
+        </svg>
+        <span>
+          <span class="marca-nombre">VETA</span>
+          <span class="marca-bajada">Artes multimediales</span>
+        </span>
+      </a>
+
+      <nav class="menu" aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html"><span class="menu-num">01</span> Portafolio</a></li>
+          <li><a href="galeria.html" aria-current="page"><span class="menu-num">02</span> Galería</a></li>
+          <li><a href="contacto.html"><span class="menu-num">03</span> Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- CABECERA DE LA GALERÍA -->
+    <section class="galeria-cabecera" aria-labelledby="galeria-titulo">
+      <div class="intro-marco">
+        <p class="portada-kicker">Muro de obras</p>
+        <h1 id="galeria-titulo">Todo el trabajo,<br><em>lado a lado.</em></h1>
+        <p class="intro-texto">
+          Video, rotoscopia, fotografía e imagen digital de los tres autores del
+          colectivo. Filtrá por autor para ver cada producción por separado, y
+          abrí cualquier obra para verla en tamaño grande.
+        </p>
+
+        <div class="filtros" role="group" aria-label="Filtrar obras por autor">
+          <button class="filtro activo" type="button" data-filtro="todos" aria-pressed="true">
+            Todas <span class="filtro-cuenta" data-cuenta="todos">0</span>
+          </button>
+          <button class="filtro" type="button" data-filtro="alan" aria-pressed="false">
+            Alan Verruá <span class="filtro-cuenta" data-cuenta="alan">0</span>
+          </button>
+          <button class="filtro" type="button" data-filtro="florencia" aria-pressed="false">
+            Florencia Olivera <span class="filtro-cuenta" data-cuenta="florencia">0</span>
+          </button>
+          <button class="filtro" type="button" data-filtro="fiorella" aria-pressed="false">
+            Fiorella Carretino <span class="filtro-cuenta" data-cuenta="fiorella">0</span>
+          </button>
+        </div>
+      </div>
+      <div class="costura costura--clara"></div>
+    </section>
+
+    <!-- MURO -->
+    <section aria-labelledby="muro-titulo">
+      <div class="marco-muro">
+        <h2 id="muro-titulo" class="solo-lectores">Obras del colectivo</h2>
+        <div class="muro" id="muro"></div>
+        <p class="muro-vacio" id="muro-vacio" hidden>No hay obras para este filtro.</p>
+        <noscript>
+          <p class="aviso">
+            La galería se construye con JavaScript (archivo <code>funciones.js</code>).
+            Activalo para ver todas las obras.
+          </p>
+        </noscript>
+      </div>
+    </section>
+
+    <!-- NOTA SOBRE LOS ARCHIVOS -->
+    <aside class="lateral lateral--simple" aria-labelledby="nota-titulo">
+      <div class="lateral-marco">
+        <article>
+          <p class="portada-kicker">Sobre los archivos</p>
+          <h2 id="nota-titulo">Cada imagen, a su medida exacta</h2>
+          <p>
+            Las miniaturas del muro están exportadas a 400 px de ancho —el ancho
+            real de la columna— y las versiones grandes son los archivos originales
+            de cada obra, sin reescalar. Por eso en el HTML no hay atributos
+            <code>width</code> ni <code>height</code>, y el CSS no encoge ninguna
+            imagen: si pesara lo mismo que la foto original, el sitio iría más
+            lento sin verse mejor.
+          </p>
+          <p>
+            La galería, los filtros por autor y el visor se construyen con
+            JavaScript en <code>funciones.js</code>, sin CSS <code>:target</code> ni
+            páginas extra.
+          </p>
+        </article>
+        <ul class="lateral-datos">
+          <li><span>Miniaturas</span><span>400 px de ancho</span></li>
+          <li><span>Versión grande</span><span>Archivo original</span></li>
+          <li><span>Formatos</span><span>JPEG · MP4 · YouTube</span></li>
+          <li><span>Tipografías</span><span>Playfair Display · Montserrat</span></li>
+        </ul>
+      </div>
+    </aside>
+
+  </main>
+
+  <footer class="pie">
+    <div class="pie-marco">
+      <div>
+        <p class="pie-marca">VETA</p>
+        <p class="pie-datos">Colectivo de artes multimediales — 2026</p>
+        <address>Diseño, código y contenidos del colectivo.</address>
+      </div>
+      <ul class="pie-enlaces">
+        <li><a href="index.html">Portafolio</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="https://www.youtube.com/@alanverrua9402" target="_blank" rel="noopener noreferrer">Canal de Alan</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- VISOR -->
+  <div class="visor" id="visor" role="dialog" aria-modal="true" aria-labelledby="visor-titulo" hidden>
+    <div class="visor-marco">
+      <button class="visor-cerrar" id="visor-cerrar" type="button" aria-label="Cerrar la obra">×</button>
+      <div class="visor-lienzo" id="visor-lienzo"></div>
+      <div class="visor-pie">
+        <p class="visor-titulo" id="visor-titulo"></p>
+        <p class="visor-meta" id="visor-meta"></p>
+        <p class="visor-enlace" id="visor-enlace-caja" hidden>
+          <a id="visor-enlace" href="#" target="_blank" rel="noopener noreferrer">Ver en YouTube</a>
+        </p>
+      </div>
+      <button class="visor-nav visor-nav--prev" id="visor-prev" type="button" aria-label="Obra anterior">←</button>
+      <button class="visor-nav visor-nav--next" id="visor-next" type="button" aria-label="Obra siguiente">→</button>
+    </div>
+  </div>
+
+</body>
+</html>
