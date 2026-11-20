@@ -5,7 +5,7 @@
    3. Filtros por autor, con contador
    4. Visor de obra con navegación por teclado
    5. Índice de obras del 'index'
-   6. Validación del formulario de contacto
+   6. Validar del formulario de contacto
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
